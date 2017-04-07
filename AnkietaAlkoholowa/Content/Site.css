@@ -1,7 +1,67 @@
-﻿body {
-    background-color: navy;
+﻿
+:root {
+    --maincolor : -webkit-gradient(linear, left top, right bottom, color-stop(2%, rgba(0,128,128,1)), color-stop(3%, rgba(0,127,127,1)), color-stop(100%, rgba(61,61,61,1)));
+    
 }
 
-p {
-    background-color: red;
+body {
+    height: fit-content;
+    width: 100%;
+    animation: pulse 40s infinite;
+        background-color: transparent;
+        
+
+   
 }
+
+body.img {
+    width: 200px;
+    height: 300px;
+}
+
+ @keyframes pulse {
+  0% {background: darkslategray}
+  10% { background: #191970;}    
+  25% { background: #6a5acd;}  
+  40% { background: cadetblue;}
+  55% { background: seagreen;}
+  70%{ background: #f4a460;}  
+  85% { background: chocolate;}
+  100% { background: brown;}    
+ 
+ 
+ }
+
+ @-webkit-keyframes pulse {
+      0% {background: darkslategray}
+  10% { background: #191970;}    
+  25% { background: #6a5acd;}  
+  40% { background: cadetblue;}
+  55% { background: seagreen;}
+  70%{ background: #f4a460;}  
+  85% { background: chocolate;}
+  100% { background: brown;}    
+ }
+
+ @-moz-keyframes pulse {
+  0% {background: darkslategray}
+  10% { background: #191970;}    
+  25% { background: #6a5acd;}  
+  40% { background: cadetblue;}
+  55% { background: seagreen;}
+  70%{ background: #f4a460;}  
+  85% { background: chocolate;}
+  100% { background: brown;}        
+ }
+
+ .rowek {
+     position: absolute;
+     top: 30px!important
+ }
+
+
+
+
+
+
+
