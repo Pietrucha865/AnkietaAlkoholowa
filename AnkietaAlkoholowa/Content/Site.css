@@ -1,23 +1,56 @@
 ﻿
-:root {
-    --maincolor : -webkit-gradient(linear, left top, right bottom, color-stop(2%, rgba(0,128,128,1)), color-stop(3%, rgba(0,127,127,1)), color-stop(100%, rgba(61,61,61,1)));
-    
-}
 
 body {
-    height: fit-content;
     width: 100%;
     animation: pulse 40s infinite;
-        background-color: transparent;
-        
+}
 
+.carousel-inner > .item {
+    margin-top: 100px;
+    
+    
    
 }
-
-body.img {
-    width: 200px;
-    height: 300px;
+.carousel-inner > .item > ul {
+    text-align: center;
+    
 }
+.carousel-inner > .item > ul li {
+    display: inline;
+    margin-right: 50px;
+  
+ 
+}
+
+.carousel-inner > .item > ul li img {
+    opacity: 0.25;
+   
+}
+    
+.carousel-inner > .item > ul li img:hover{
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+
+.container {
+    margin: auto;
+    width: 70%;
+    margin-top: 130px;
+}
+ 
+
+
+#myCarousel > a{
+    top: 160px;
+    display: none;
+}
+
+/*.progress {
+    width: 80%;
+    position: relative;
+    
+}*/
 
  @keyframes pulse {
   0% {background: darkslategray}
@@ -54,14 +87,5 @@ body.img {
   100% { background: brown;}        
  }
 
- .rowek {
-     position: absolute;
-     top: 30px!important
- }
-
-
-
-
-
-
-
+ 
+ 
