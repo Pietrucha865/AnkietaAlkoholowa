@@ -13,5 +13,9 @@ namespace AnkietaAlkoholowa.Controllers
             return View();
         }
 
+        public ActionResult Graph()
+        {
+            return View();
+        }
     }
 }

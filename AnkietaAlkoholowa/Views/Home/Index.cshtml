@@ -1,4 +1,5 @@
-﻿@using System.Web.Optimization
+﻿@using System.Threading
+@using System.Web.Optimization
 @inherits System.Web.Mvc.WebViewPage
 
 
@@ -18,13 +19,13 @@
 
 
 <body>
-   
-
-    <div class="container">
 
 
-        <div id="myCarousel" class="carousel slide">
-            @*<ol class="carousel-indicators">
+<div class="container">
+
+
+    <div id="myCarousel" class="carousel slide">
+        @*<ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -33,80 +34,92 @@
 
 
 
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <ul>
-                        <li><img src="~/Images/boy.png" onclick="myFunction(0,0)" /></li>
-                        <li><img src="~/Images/girl.png" onclick="myFunction(0,1)" /></li>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <ul>
+                    <li><img src="~/Images/boy.png" onclick="myFunction(0, 0)"/></li>
+                    <li><img src="~/Images/girl.png" onclick="myFunction(0, 1)"/></li>
 
-                    </ul>
-                </div>
-
-                <div class="item">
-                    <ul>
-                        <li><img src="~/Images/18.png" onclick="myFunction(1,0)" /></li>
-                        <li><img src="~/Images/18_25.png" onclick="myFunction(1,1)" /></li>
-                        <li><img src="~/Images/25.png" onclick="myFunction(1,2)" /></li>
-
-                    </ul>
-                </div>
+                </ul>
             </div>
 
+            <div class="item">
+                <ul>
+                    <li><img src="~/Images/18.png" onclick="myFunction(1, 0)"/></li>
+                    <li><img src="~/Images/18_25.png" onclick="myFunction(1, 1)"/></li>
+                    <li><img src="~/Images/25.png" onclick="myFunction(1, 2)"/></li>
 
-            @*<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-menu-left" aria-hidden="false"></span>
-                <span class="sr-only">Previous</span>
-            </a>*@
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" onclick="reset()">
-                <span class="glyphicon glyphicon-menu-right" aria-hidden="false"></span>
-                <span class="sr-only">Next</span>
-            </a>
+                </ul>
+            </div>
         </div>
         
-       
-
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" data-interval="false" onclick="reset()">
+            <span class="glyphicon glyphicon-menu-right" aria-hidden="false"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 
-    
-    <div class="progress">
-        <div class="progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
 
-        </div>
 
+</div>
+
+
+<div id="pasek" class="progress">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
     </div>
+</div>
+
 
 
 
 </body>
 <script>
-   
-   function reset() {
-       var ja = document.getElementById("myCarousel").getElementsByTagName("a");
-       ja[0].style.display = "none";
-   }
-    
-    function myFunction(numberOfClass,numberOfImage) {
-        var ja = document.getElementById("myCarousel").getElementsByTagName("a");
-        ja[0].style.display = "block";
+    var value = 0;
+    var stopFade = false;
 
+    $(document).ready(function() {
+        $(".alert-success").hide();
+    });
+   
+    function reset() {
+        stopFade = true;
+        var ja = document.getElementById("myCarousel").getElementsByTagName("a");
+        ja[0].style.display = "none";
+        value += 100;
+        $('.progress-bar-striped').css('width', value + '%');
+        if (value == 100) {
+            endAnkiety();
+        }
+
+    }
+    
+    function myFunction(numberOfClass, numberOfImage) {
+        stopFade = false;
 
         var ja2 = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("img");
-        var wasClicked = false;
         for (var i = 0 ; i < ja2.length ; i ++) {
             if (ja2[i].style.opacity == "1") {
                 ja2[i].style.opacity = "0.25";
-                break;
             } 
         }
+        ja2[numberOfImage].style.opacity = "1";
+        fejdIn();
 
-      ja2[numberOfImage].style.opacity = "1";
-
-   
-        
-
-     
 
        
+     }
+
+    function fejdIn() {
+       if(stopFade == false) $('.carousel-control').fadeIn(3000, fejdOut);
+    }
+
+    function fejdOut() {
+        if (stopFade == false) $('.carousel-control').fadeOut(3000, fejdIn);
+
+    }
+
+    function endAnkiety() {
+        window.open("Graph");
     }
 </script>
 

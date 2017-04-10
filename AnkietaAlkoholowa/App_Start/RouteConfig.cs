@@ -12,7 +12,12 @@ namespace AnkietaAlkoholowa
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-          
+
+            //routes.MapRoute(
+            //    name: "Graph",
+            //    url: "{controller}/{action}",
+            //    defaults: new {controller = "Graph", action = "Index"}
+            //);
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
