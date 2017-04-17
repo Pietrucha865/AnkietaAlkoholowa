@@ -14,7 +14,7 @@ namespace AnkietaAlkoholowa
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.min.js",
                  "~/Scripts/bootstrap.js"));
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include("~/Scripts/jquery-1.9.1.min.js","~/Scripts/jquery-1.9.1.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include("~/Scripts/jquery-1.9.1.min.js","~/Scripts/jquery-1.9.1.js","~/Scripts/jquery.cookie.js"));
           
 
 

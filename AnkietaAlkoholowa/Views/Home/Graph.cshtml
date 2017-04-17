@@ -1,23 +1,46 @@
 ﻿@using System.Web.Optimization
-@inherits System.Web.Mvc.WebViewPage
+@using System.Web.UI.WebControls
+@model AnkietaAlkoholowa.Models.RecordViewModel
 
 
 
-<head>
-    <meta charset="utf-8" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="icon" type="image/ico" href="~/Images/favicon.ico" />
-    <title>Alkohl</title>
-    @Scripts.Render("~/bundles/jquery")
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/bootstrap")
+    <head>
+        <meta charset="utf-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="icon" type="image/ico" href="~/Images/favicon.ico" />
+        <title>Alkohl</title>
+        @Scripts.Render("~/bundles/jquery")
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/bootstrap")
 
 
-</head>
+    </head>
 <body>
-<div class ="kontenter">
-<div class="loader">
+@*<h1>
+            @foreach (var record in Model.Record)
+            {
+                @record.Age
+                @record.Sex
+                <br />
+            }
 
-</div>
+
+        </h1>*@
+   
+<div class="kontenter">
+            
+
+    <div class="loader">
+
+    </div>
 </div>
 </body>
+@*<script>
+    function func(){
+    var tab = document.cookie.split(',');
+    var tekst = document.getElementsByClassName("kontenter");
+        tekst[0].innerHTML = tab[0];
+
+
+    }
+</script>*@

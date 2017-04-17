@@ -1,20 +1,23 @@
 ﻿@using System.Threading
+@using System.Web.Mvc.Html
 @using System.Web.Optimization
-@inherits System.Web.Mvc.WebViewPage
+@using AnkietaAlkoholowa.Controllers
+@*@inherits System.Web.Mvc.WebViewPage*@
+@model AnkietaAlkoholowa.Models.Record
+  
 
 
+    <head>
+        <meta charset="utf-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="icon" type="image/ico" href="~/Images/favicon.ico" />
+        <title>Alkohl</title>
+        @Scripts.Render("~/bundles/jquery")
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/bootstrap")
 
-<head>
-    <meta charset ="utf-8"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="icon" type="image/ico" href="~/Images/favicon.ico"/>
-    <title>Alkohl</title>
-    @Scripts.Render("~/bundles/jquery")
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/bootstrap")
-     
- 
-</head>
+
+    </head>
 
 
 
@@ -25,35 +28,29 @@
 
 
     <div id="myCarousel" class="carousel slide">
-        @*<ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-
-            </ol>*@
 
 
 
         <div class="carousel-inner" role="listbox">
             <div class="item active">
                 <ul>
-                    <li><img src="~/Images/boy.png" onclick="myFunction(0, 0)"/></li>
-                    <li><img src="~/Images/girl.png" onclick="myFunction(0, 1)"/></li>
+                    <li><img src="~/Images/boy.png" onclick="myFunction(0, 0)" /></li>
+                    <li><img src="~/Images/girl.png" onclick="myFunction(0, 1)" /></li>
 
                 </ul>
             </div>
 
             <div class="item">
                 <ul>
-                    <li><img src="~/Images/18.png" onclick="myFunction(1, 0)"/></li>
-                    <li><img src="~/Images/18_25.png" onclick="myFunction(1, 1)"/></li>
-                    <li><img src="~/Images/25.png" onclick="myFunction(1, 2)"/></li>
+                    <li><img src="~/Images/18.png" onclick="myFunction(1, 0)" /></li>
+                    <li><img src="~/Images/1825.png" onclick="myFunction(1, 1)" /></li>
+                    <li><img src="~/Images/25.png" onclick="myFunction(1, 2)" /></li>
 
                 </ul>
             </div>
         </div>
-        
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" data-interval="false" onclick="reset()">
+               
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" data-interval="false" onclick="reset()">
             <span class="glyphicon glyphicon-menu-right" aria-hidden="false"></span>
             <span class="sr-only">Next</span>
         </a>
@@ -73,56 +70,72 @@
 
 
 </body>
-<script>
-    var value = 0;
-    var stopFade = false;
 
-    $(document).ready(function() {
-        $(".alert-success").hide();
-    });
-   
-    function reset() {
-        stopFade = true;
-        var ja = document.getElementById("myCarousel").getElementsByTagName("a");
-        ja[0].style.display = "none";
-        value += 100;
-        $('.progress-bar-striped').css('width', value + '%');
-        if (value == 100) {
-            endAnkiety();
+    <script>
+        var value = 0;
+        var stopFade = false;
+        var arrayInput = [];
+        var arr2;
+        $(document).ready(function () {
+            $(".alert-success").hide();
+        });
+
+        function reset() {
+            stopFade = true;
+            var ja = document.getElementById("myCarousel").getElementsByTagName("a");
+            ja[0].style.display = "none";
+            value += 50;
+            $('.progress-bar-striped').css('width', value + '%');
+            if (value == 100) {
+                endAnkiety();
+            }
         }
 
-    }
-    
-    function myFunction(numberOfClass, numberOfImage) {
-        stopFade = false;
+        function myFunction(numberOfClass, numberOfImage) {
+            stopFade = false;
 
-        var ja2 = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("img");
-        for (var i = 0 ; i < ja2.length ; i ++) {
-            if (ja2[i].style.opacity == "1") {
-                ja2[i].style.opacity = "0.25";
-            } 
+            var ja2 = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("img");
+            for (var i = 0 ; i < ja2.length ; i++) {
+                if (ja2[i].style.opacity == "1") {
+                    ja2[i].style.opacity = "0.25";
+                }
+            }
+            var array = ja2[numberOfImage].src.replace(/^.*[\\\/]/, '');
+            arrayInput.push(array.replace(".png", ""));
+            ja2[numberOfImage].style.opacity = "1";
+            fejdIn();
         }
-        ja2[numberOfImage].style.opacity = "1";
-        fejdIn();
+
+        function fejdIn() {
+            if (stopFade == false) $('.carousel-control').fadeIn(3000, fejdOut);
+        }
 
 
-       
-     }
+        function fejdOut() {
+            if (stopFade == false) $('.carousel-control').fadeOut(3000, fejdIn);
 
-    function fejdIn() {
-       if(stopFade == false) $('.carousel-control').fadeIn(3000, fejdOut);
-    }
+        }
 
-    function fejdOut() {
-        if (stopFade == false) $('.carousel-control').fadeOut(3000, fejdIn);
+        function endAnkiety() {
+            //$.ajax({
+            //    type: "GET",
+            //    url: '/Home/Sessione',
+            //    data: {age : "123",sex:"hehe"},
+            //    contentType: "application/json; charset=utf-8",
+            //    dataType: "json"
+                
+            //});
+           // document.cookie = arrayInput[0] +"," + arrayInput[1];
+            //Session
+            //$.cookie("age", 111);
+            window.close();
+            $.post('/Home/Sessione', { age: arrayInput[1].toString(), sex: arrayInput[0].toString() });
+            window.open("Graph");
+            //window.open("Graph?sex=" + arrayInput[0] + "&age=" + arrayInput[1]);
 
-    }
 
-    function endAnkiety() {
-        window.close();
-        window.open("Graph");
-    }
-</script>
+        }
+    </script>
 
 
 
