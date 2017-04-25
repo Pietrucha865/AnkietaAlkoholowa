@@ -9,18 +9,41 @@ body {
     animation: pulse 40s infinite;
 }
 
-.carousel-inner > .item {
+h1{ margin-bottom: 50px;}
+
+
+
+button.btn
+{
+    position: relative;
     margin-top: 100px;
-    
-    
-   
+    margin-right: 30px;
+    height: 65px;
+    width: 220px;
+    font-size: 27px;
+    color: whitesmoke;
 }
-.carousel-inner > .item > ul {
+
+
+
+.carousel-inner > .item {
+    margin-top: 80px;
     text-align: center;
 }
-.carousel-inner > .item > ul li {
+.carousel-inner > .item > button{
+    margin-left: 50px;
+    position: relative;
+}
+
+
+    /*.carousel-inner > .item > ul {
+        text-align: center;
+    }*/
+.carousel-inner > .item > ul  li {
     display: inline;
     margin-right: 50px;
+    margin-top: 80px;
+    
   
  
 }
@@ -46,15 +69,47 @@ body {
 
 
 
+span.glyphicon {
+    font-size: 40px;
+}
+
+span.glyphicon-thumbs-up {
+    
+    font-size: 100px;
+    margin-top: 10px;
+}
+
+
+span.glyphicon-thumbs-down {
+    font-size: 100px;
+    
+}
+
+
+
 #myCarousel > a{
     top: 160px;
     display: none;
 }
 
+
+    
+.carousel-inner > .item > a  {
+    display: inline;
+    margin-bottom: 100px;
+    margin-right: 30px;
+    
+}.carousel-inner > .item > a:hover  {
+     cursor: pointer;
+}
+
+
 .progress {
     width:70%;
     position: relative;
-    margin: auto;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .kontenter {

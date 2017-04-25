@@ -36,14 +36,16 @@ namespace AnkietaAlkoholowa.Controllers
        
         public JsonResult Sessione()
         {
-            
-           // this.Sex = sex;
-           Session["Age"] = Request.Params["age"];
-            Session["Sex"] = Request.Params["sex"]; 
-         
+            Session["Age"] = Request.Params["age"];
+            Session["Sex"] = Request.Params["sex"];
+            Session["Education"] = Request.Params["education"];
+            Session["Live"] = Request.Params["lives"];
+            Session["Kind"] = Request.Params["kind"];
+            Session["Place"] = Request.Params["place"];
+            Session["Times"] = Request.Params["times"];
+            Session["Aggresive"] = Request.Params["aggresive"];
+            Session["Hangover"] = Request.Params["hangover"];
             return Json(null);
-
-
         }
 
 
@@ -56,32 +58,39 @@ namespace AnkietaAlkoholowa.Controllers
             {
                 //List<Record> rec = new List<Record>();
                 using (
-                    var connect = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog = AlcoBase"))
+                    var connect = new SqlConnection("Server = mssql01.dcsweb.pl,51433; Database = 1292_AlcoTest; Uid = 1292_alcotest; Password = Qweasdzxc_95;"))
 
                 {
                     connect.Open();
-                    string query = "SELECT * FROM dbo.Records ;";
-                    string query2 = "INSERT INTO dbo.Records (age,sex) VALUES (@Age,@Sex);";
+                    //string query = "SELECT * FROM dbo.Records ;";
+                    string query2 = "INSERT INTO dbo.Records (age,sex,education,live,kind,times,place,aggresive,hangover) VALUES (@Age,@Sex,@Education,@Live,@Kind,@Times,@Place,@Aggresive,@Hangover);";
 
                     using (SqlCommand command = new SqlCommand(query2, connect))
                     {
                         command.Parameters.AddWithValue("@Age",Age);
                         command.Parameters.AddWithValue("@Sex",Sex);
+                        command.Parameters.AddWithValue("@Education",Session["Education"]);
+                        command.Parameters.AddWithValue("@Live",Session["Live"]);
+                        command.Parameters.AddWithValue("@Kind",Session["Kind"]);
+                        command.Parameters.AddWithValue("@Times",Session["Times"]);
+                        command.Parameters.AddWithValue("@Place",Session["Place"]);
+                        command.Parameters.AddWithValue("@Aggresive",Session["Aggresive"]);
+                        command.Parameters.AddWithValue("@Hangover",Session["Hangover"]);
                         command.ExecuteNonQuery();
                     }
-                    using (SqlCommand command = new SqlCommand(query, connect))
-                    {
+                    //using (SqlCommand command = new SqlCommand(query, connect))
+                    //{
 
-                        using (var reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                record.Add(new Record(Int32.Parse(reader.GetValue(1).ToString()),
-                                    reader.GetValue(2).ToString().TrimEnd()));
-                            }
+                    //    using (var reader = command.ExecuteReader())
+                    //    {
+                    //        while (reader.Read())
+                    //        {
+                    //            record.Add(new Record(Int32.Parse(reader.GetValue(1).ToString()),
+                    //                reader.GetValue(2).ToString().TrimEnd()));
+                    //        }
 
-                        }
-                    }
+                    //    }
+                    //}
                 }
             }
 
