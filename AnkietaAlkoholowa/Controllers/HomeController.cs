@@ -25,13 +25,14 @@ namespace AnkietaAlkoholowa.Controllers
 
         public ActionResult Graph(string sex, int? age)
         {
-            Data();
-            var model = new RecordViewModel
-            {
-                Record = record
-            };
+            //Data();
+            //var model = new RecordViewModel
+            //{
+            //    Record = record
+            //};
             //ViewBag.Record = record;
-            return View(model);
+            //return View(model);
+            return View();
         }
        
         public JsonResult Sessione()
@@ -58,7 +59,8 @@ namespace AnkietaAlkoholowa.Controllers
             {
                 //List<Record> rec = new List<Record>();
                 using (
-                    var connect = new SqlConnection("Server = mssql01.dcsweb.pl,51433; Database = 1292_AlcoTest; Uid = 1292_alcotest; Password = Qweasdzxc_95;"))
+                    //var connect = new SqlConnection("Server = mssql01.dcsweb.pl,51433; Database = 1292_AlcoTest; Uid = 1292_alcotest; Password = Qweasdzxc_95;"))
+                    var connect = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = AlcoBase"))
 
                 {
                     connect.Open();

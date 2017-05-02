@@ -52,8 +52,46 @@ button.btn
     opacity: 0.25;
    
 }
+
+.dropdown {
+    text-align: center;
+    margin-top: 400px;
+}
+
+
+
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown .dropdown-menu {
+    margin-left: 150px;
+
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    /*left: 110px;*/
+    margin-top: -1px;
+}
     
 .carousel-inner > .item > ul li img:hover{
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+.carousel-inner > .item > .col-xs-12 {
+    margin-right: auto;
+}
+
+.carousel-inner > .item > .col-xs-12 img {
+    opacity: 0.25;
+    text-align: center;
+   
+}
+
+.carousel-inner > .item > .col-xs-12 img:hover{
     cursor: pointer;
     opacity: 0.75;
 }
@@ -99,8 +137,6 @@ span.glyphicon-thumbs-down {
     margin-bottom: 100px;
     margin-right: 30px;
     
-}.carousel-inner > .item > a:hover  {
-     cursor: pointer;
 }
 
 

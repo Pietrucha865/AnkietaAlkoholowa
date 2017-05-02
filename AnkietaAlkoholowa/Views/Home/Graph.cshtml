@@ -9,14 +9,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <link rel="icon" type="image/ico" href="~/Images/favicon.ico" />
         <title>Alkohl</title>
+        @Scripts.Render("~/bundles/bootstrap")
+
         @Scripts.Render("~/bundles/jquery")
         @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/bootstrap")
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>*@
 
 
     </head>
 <body>
-@*<h1>
+    @*<h1>
             @foreach (var record in Model.Record)
             {
                 @record.Age
@@ -26,21 +30,138 @@
 
 
         </h1>*@
-   
-<div class="kontenter">
-            
+    <div id="kontener">
 
-    <div class="loader">
+        <div class="col-lg-4">
+            <div class="dropdown">
+                <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
+                    Tutorials
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
 
+                    <li class="dropdown-submenu">
+                        <a class="test" tabindex="0" href="#" ang="sex">Płeć<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#" ang="female">Kobieta</a></li>
+                            <li><a tabindex="-1" href="#" ang="male">Mężczyzna</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a class="test" tabindex="1" href="#">Rodzaj alkoholu<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#" ang="beer">Piwo</a></li>
+                            <li><a tabindex="-1" href="#" ang="wine">Wino</a></li>
+                            <li><a tabindex="-1" href="#" ang="vodka">Wódka</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a class="test" tabindex="2" href="#">Wiek<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#" ang="18">&lt; 18</a></li>
+                            <li><a tabindex="-1" href="#" ang="1825">18 - 25</a></li>
+                            <li><a tabindex="-1" href="#" ang="25">&gt; 25</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a class="test" tabindex="3" href="#">Częstość<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#">Nigdy</a></li>
+                            <li><a tabindex="-1" href="#">Sporadycznie</a></li>
+                            <li><a tabindex="-1" href="#">Codziennie</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a class="test" tabindex="4" href="#">Miejsce<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#" >W plenerze</a></li>
+                            <li><a tabindex="-1" href="#" >W domu</a></li>
+                            <li><a tabindex="-1" href="#" >Na imprezie</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="dropdown">
+                <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
+                    Tutorials
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+
+                    <li class="dropdown-submenu">
+                        <a class="test" tabindex="5" href="#">New dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
+                            <li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="col-lg-4">
+            <div class="dropdown">
+                <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
+                    Tutorials
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-submenu">
+                        <a class="test" tabindex="6" href="#">New dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
+                            <li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        @*<div class="loader">
+
+            </div>*@
     </div>
-</div>
 </body>
-@*<script>
-    function func(){
-    var tab = document.cookie.split(',');
-    var tekst = document.getElementsByClassName("kontenter");
-        tekst[0].innerHTML = tab[0];
 
 
-    }
-</script>*@
+<script>
+    var item = null;
+    $(document).ready(function(){
+        $('.dropdown-submenu a.test').on("click", function(e) {
+            if (item != null) {
+                var el = $('.dropdown-submenu a.test').toArray();
+                el[item].click();
+            }
+
+            $(this).next('ul').toggle();
+            item = $(this).attr('tabindex');
+          
+
+           
+            //for (var i = 0 ; i < el.length ; i++) {
+            //    if (i != items) el[i].hoverState = true;
+            //}
+            //for (var i = 0; i < el.length; i++) {
+            //    el[i].hide();
+            //}
+
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    });
+
+
+    $(document).ready(function() {
+        $('.dropdown-submenu .dropdown-menu a').on("click",
+            function () {
+                if ($(this).attr('ang') != null)
+                    alert($(this).attr('ang'));
+                else alert($(this).text());
+            });
+    });
+</script>

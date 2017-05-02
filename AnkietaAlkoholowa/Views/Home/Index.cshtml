@@ -35,11 +35,18 @@
 
                 <div class="item active">
                     <h1> Wybierz płeć </h1>
-                    <ul>
-                        <li><img src="~/Images/boy.png" onclick="myFunction(0, 0)" /></li>
-                        <li><img src="~/Images/girl.png" onclick="myFunction(0, 1)" /></li>
-                    </ul>
+
+                    <div class="col-xs-12 col-sm-4">
+                        <img src="~/Images/boy.png" onclick="myFunction(0, 0)" />
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <img src="~/Images/girl.png" onclick="myFunction(0, 1)" />
+                    </div>
                 </div>
+
 
                 <div class="item">
                     <h1>Wybierz przedział wiekowy</h1>
@@ -48,7 +55,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <img src="~/Images/1825.png" onclick="myFunction(1, 1)" />
-                        
+
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <img src="~/Images/25.png" onclick="myFunction(1, 2)" />
@@ -58,51 +65,64 @@
 
 
                     <h1>Wybierz szkołę do jakiej chodzisz</h1>
-                    <button type="button" class="btn btn-primary" onclick="myFunction2(2, 0)">Gimnazjum</button>
-                    <button type="button" class="btn btn-success" onclick="myFunction2(2, 1)"> Liceum</button>
-                    <button type="button" class="btn btn-danger" onclick="myFunction2(2, 2)"> Studia wyzsze</button>
 
+                    <div class="col-xs-12 col-sm-4">
+                        <button type="button" class="btn btn-primary" onclick="myFunction2(2, 0)">Gimnazjum</button>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <button type="button" class="btn btn-success" onclick="myFunction2(2, 1)"> Liceum</button>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <button type="button" class="btn btn-danger" onclick="myFunction2(2, 2)"> Studia wyzsze</button>
+                    </div>
                 </div>
                 <div class="item">
                     <h1>Wybierz miejsce zamieszkania</h1>
 
-                    <ul>
-                        <li><img src="~/Images/cottage.png" class="img-circle" onclick="myFunction(3, 0)" /></li>
-                        <li><img src="~/Images/city.png" class="img-circle" onclick="myFunction(3, 1)" /></li>
-                    </ul>
+
+                    <div class="col-xs-12 col-sm-4">
+                        <img src="~/Images/cottage.png" class="img-circle" onclick="myFunction(3, 0)" />
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <img src="~/Images/city.png" class="img-circle" onclick="myFunction(3, 1)" />
+                    </div>
                 </div>
                 <div class="item">
                     <h1>Wybierz preferowany alkohol</h1>
 
-                    <ul>
-                        <li><img src="~/Images/beer.png" onclick="myFunction(4, 0)" /></li>
-                        <li><img src="~/Images/vodka.png" onclick="myFunction(4, 1)" /></li>
-                        <li><img src="~/Images/wine.png" onclick="myFunction(4, 2)" /></li>
-                    </ul>
+
+                    <div class="col-xs-12 col-sm-4"><img src="~/Images/beer.png" onclick="myFunction(4, 0)" /></div>
+                    <div class="col-xs-12 col-sm-4"><img src="~/Images/vodka.png" onclick="myFunction(4, 1)" /></div>
+                    <div class="col-xs-12 col-sm-4"><img src="~/Images/wine.png" onclick="myFunction(4, 2)" /></div>
+
                 </div>
                 <div class="item">
                     <h1> Jak często ? </h1>
-                    <button type="button" class="btn btn-primary" onclick="myFunction2(5, 0)">Codziennie</button>
-                    <button type="button" class="btn btn-success" onclick="myFunction2(5, 1)">Sporadycznie</button>
-                    <button type="button" class="btn btn-danger" onclick="myFunction2(5, 2)"> Nigdy</button>
+                    <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-primary" onclick="myFunction2(5, 0)">Codziennie</button></div>
+                    <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-success" onclick="myFunction2(5, 1)">Sporadycznie</button></div>
+                    <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-danger" onclick="myFunction2(5, 2)"> Nigdy</button></div>
                 </div>
                 <div class="item">
                     <h1> Gdzie? </h1>
-                    <button type="button" class="btn btn-primary" onclick="myFunction2(6, 0)">W domu</button>
-                    <button type="button" class="btn btn-success" onclick="myFunction2(6, 1)">W plenerze</button>
-                    <button type="button" class="btn btn-danger" onclick="myFunction2(6, 2)">Na imprezie</button>
+                    <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-primary" onclick="myFunction2(6, 0)">W domu</button>    </div>
+                    <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-success" onclick="myFunction2(6, 1)">W plenerze</button></div>
+                    <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-danger" onclick="myFunction2(6, 2)">Na imprezie</button></div>
                 </div>
 
                 <div class="item">
                     <h1> Bywasz agresywny ? </h1>
-                    <a onclick="myFunction3(7,0)"><span class="glyphicon glyphicon-thumbs-up"></span></a>
-                    <a onclick="myFunction3(7,1)"><span class="glyphicon glyphicon-thumbs-down"></span></a>
+                    <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(7,0)"><span class="glyphicon glyphicon-thumbs-up"></span></a>  </div>
+                    <div class="col-xs-12 col-sm-4"></div>
+                    <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(7,1)"><span class="glyphicon glyphicon-thumbs-down"></span></a></div>
 
                 </div>
                 <div class="item">
                     <h1> Kac dnia następnego ? </h1>
-                    <a onclick="myFunction3(8,0)"><span class="glyphicon glyphicon-thumbs-up"></span></a>
-                    <a onclick="myFunction3(8,1)"><span class="glyphicon glyphicon-thumbs-down"></span></a>
+                    <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(8,0)"><span class="glyphicon glyphicon-thumbs-up"></span></a>  </div>
+                    <div class="col-xs-12 col-sm-4"></div>
+                    <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(8,1)"><span class="glyphicon glyphicon-thumbs-down"></span></a></div>
                 </div>
 
 
