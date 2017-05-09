@@ -150,10 +150,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Properties\PublishProfiles\alcoquest.aspnet.pl - Web Deploy %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\alcoquest.aspnet.pl - Web Deploy %283%29.pubxml">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Images\18.png" />
     <Content Include="Images\1825.png" />
@@ -172,9 +168,12 @@
     <Content Include="Images\wine.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\canvasjs.min.js" />
+    <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.canvasjs.min.js" />
     <Content Include="Scripts\jquery.pulse.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -216,6 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

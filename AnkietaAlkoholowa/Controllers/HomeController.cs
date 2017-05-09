@@ -13,9 +13,8 @@ namespace AnkietaAlkoholowa.Controllers
 {
     public class HomeController : Controller
     {
-        public int Age { get; set; }
+       
       
-        public  string Sex { get; set; }
         private List<Record> record = new List<Record>();
         public ActionResult Index()
         {
@@ -25,15 +24,17 @@ namespace AnkietaAlkoholowa.Controllers
 
         public ActionResult Graph(string sex, int? age)
         {
-            //Data();
+            Data();
             //var model = new RecordViewModel
             //{
             //    Record = record
             //};
             //ViewBag.Record = record;
-            //return View(model);
             return View();
+            //return View();
         }
+
+
        
         public JsonResult Sessione()
         {
@@ -52,14 +53,13 @@ namespace AnkietaAlkoholowa.Controllers
 
         public void Data()
         {
-            this.Age = Int32.Parse(Session["Age"].ToString());
-            this.Sex = Session["Sex"].ToString();
             
             if (Session["start"] != null)
             {
                 //List<Record> rec = new List<Record>();
                 using (
                     //var connect = new SqlConnection("Server = mssql01.dcsweb.pl,51433; Database = 1292_AlcoTest; Uid = 1292_alcotest; Password = Qweasdzxc_95;"))
+                   // var connect = new SqlConnection(@"Server=tcp:alcobase.database.windows.net,1433;Initial Catalog=AlcoTestBase;Persist Security Info=False;User ID=kubmar;Password=Qweasdzxc_95;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
                     var connect = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = AlcoBase"))
 
                 {
@@ -69,8 +69,8 @@ namespace AnkietaAlkoholowa.Controllers
 
                     using (SqlCommand command = new SqlCommand(query2, connect))
                     {
-                        command.Parameters.AddWithValue("@Age",Age);
-                        command.Parameters.AddWithValue("@Sex",Sex);
+                        command.Parameters.AddWithValue("@Age", Session["Age"]);
+                        command.Parameters.AddWithValue("@Sex",Session["Sex"]);
                         command.Parameters.AddWithValue("@Education",Session["Education"]);
                         command.Parameters.AddWithValue("@Live",Session["Live"]);
                         command.Parameters.AddWithValue("@Kind",Session["Kind"]);
@@ -78,7 +78,7 @@ namespace AnkietaAlkoholowa.Controllers
                         command.Parameters.AddWithValue("@Place",Session["Place"]);
                         command.Parameters.AddWithValue("@Aggresive",Session["Aggresive"]);
                         command.Parameters.AddWithValue("@Hangover",Session["Hangover"]);
-                        command.ExecuteNonQuery();
+                        command.ExecuteScalar();
                     }
                     //using (SqlCommand command = new SqlCommand(query, connect))
                     //{

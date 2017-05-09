@@ -22,7 +22,7 @@ namespace AnkietaAlkoholowa
 
             routes.MapRoute(
                 "Graph",
-                "Home/Graph/{sex}/{age}",
+                "Home/Graph/",
                 new { controller = "Home", action = "Graph" }
                 )
             ;
