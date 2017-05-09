@@ -59,8 +59,8 @@ namespace AnkietaAlkoholowa.Controllers
                 //List<Record> rec = new List<Record>();
                 using (
                     //var connect = new SqlConnection("Server = mssql01.dcsweb.pl,51433; Database = 1292_AlcoTest; Uid = 1292_alcotest; Password = Qweasdzxc_95;"))
-                   // var connect = new SqlConnection(@"Server=tcp:alcobase.database.windows.net,1433;Initial Catalog=AlcoTestBase;Persist Security Info=False;User ID=kubmar;Password=Qweasdzxc_95;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-                    var connect = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = AlcoBase"))
+                    var connect = new SqlConnection(@"Server=tcp:alcobase.database.windows.net,1433;Initial Catalog=AlcoTestBase;Persist Security Info=False;User ID=kubmar;Password=Qweasdzxc_95;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+                    //var connect = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = AlcoBase"))
 
                 {
                     connect.Open();
@@ -78,7 +78,7 @@ namespace AnkietaAlkoholowa.Controllers
                         command.Parameters.AddWithValue("@Place",Session["Place"]);
                         command.Parameters.AddWithValue("@Aggresive",Session["Aggresive"]);
                         command.Parameters.AddWithValue("@Hangover",Session["Hangover"]);
-                        command.ExecuteScalar();
+                        command.ExecuteNonQuery();
                     }
                     //using (SqlCommand command = new SqlCommand(query, connect))
                     //{
