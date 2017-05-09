@@ -150,6 +150,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\sa.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Images\18.png" />
     <Content Include="Images\1825.png" />
@@ -160,10 +161,6 @@
     <Content Include="Images\cottage.png" />
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\girl.png" />
-    <Content Include="Images\iradon.png" />
-    <Content Include="Images\phantom.png" />
-    <Content Include="Images\piwo.png" />
-    <Content Include="Images\top.png" />
     <Content Include="Images\vodka.png" />
     <Content Include="Images\wine.png" />
     <Content Include="Scripts\bootstrap.js" />
