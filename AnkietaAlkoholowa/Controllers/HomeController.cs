@@ -38,8 +38,8 @@ namespace AnkietaAlkoholowa.Controllers
        
         public JsonResult Sessione()
         {
-            Session["Age"] = Request.Params["age"];
             Session["Sex"] = Request.Params["sex"];
+            Session["Age"] = Request.Params["age"];
             Session["Education"] = Request.Params["education"];
             Session["Live"] = Request.Params["lives"];
             Session["Kind"] = Request.Params["kind"];
