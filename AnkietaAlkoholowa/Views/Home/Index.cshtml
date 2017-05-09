@@ -9,7 +9,6 @@
 
     <head>
         <meta charset="utf-8" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <link rel="icon" type="image/ico" href="~/Images/favicon.ico" />
         <title>Alkohl</title>
         @Scripts.Render("~/bundles/jquery")
@@ -170,9 +169,9 @@
             stopFade = true;
             var ja = document.getElementById("myCarousel").getElementsByTagName("a");
             ja[4].style.display = "none";
-            value += 10;
+            value += 100/9;
             $('.progress-bar-striped').css('width', value + '%');
-            if (value ==90) {
+            if (Math.round(value) == 100) {
                 endAnkiety();
             }
         }
