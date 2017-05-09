@@ -38,7 +38,8 @@ button.btn
     position: relative;
 }
 
-.carousel-control a {
+a.right.carousel-control {
+    background: none;
     width: 40px;
     height: 40px;
 }
