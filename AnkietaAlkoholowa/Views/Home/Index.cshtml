@@ -192,10 +192,10 @@
                }
            }
             ja2[numberOfImage].style.color = "red";
-          
+
             $(ja2[numberOfImage]).effect("shake", { direction: "right", times: 4, distance: 10 }, 1000);
             arrayInput.push($(ja2[numberOfImage]).text());
-           
+
             fejdIn();
         }
 
@@ -205,7 +205,7 @@
             var element = document.getElementsByClassName("item")[numberOfClass]
                 .getElementsByTagName("a");
             for (var i = 0; i < element.length; i++) {
-                if ($(element[i]).attr('class') == 'btn btn-info btn-lg') 
+                if ($(element[i]).attr('class') == 'btn btn-info btn-lg')
                     $(element).removeClass();
             }
             $(element[numberOfImage]).addClass("btn btn-info btn-lg");
@@ -217,10 +217,10 @@
 
         function fejdIn() {
             if (stopFade == false) $('.carousel-control ').fadeIn(2000, fejdOut);
-        }                             
-                                      
-                                      
-        function fejdOut() {          
+        }
+
+
+        function fejdOut() {
             if (stopFade == false) $('.carousel-control ').fadeOut(2000, fejdIn);
 
         }
@@ -232,12 +232,8 @@
             //    data: {age : "123",sex:"hehe"},
             //    contentType: "application/json; charset=utf-8",
             //    dataType: "json"
-                
-            //});
-           // document.cookie = arrayInput[0] +"," + arrayInput[1];
-            //Session
-            //$.cookie("age", 111);
-            //window.close();
+
+         
             $.post('/Home/Sessione',
             {
                 sex: arrayInput[0].toString(), age: arrayInput[1].toString(),
@@ -246,9 +242,11 @@
                 place: arrayInput[6].toString(), aggresive: arrayInput[7].toString(),
                 hangover: arrayInput[8].toString()
             });
-            window.close();
-            window.open("Graph");
-            //window.open("Graph?sex=" + arrayInput[0] + "&age=" + arrayInput[1]);
+
+            //window.close();
+            //window.open("Graph");
+
+            window.location.href = '/Home/Graph';
 
 
         }

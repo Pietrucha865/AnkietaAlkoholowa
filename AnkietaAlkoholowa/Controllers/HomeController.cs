@@ -22,7 +22,7 @@ namespace AnkietaAlkoholowa.Controllers
             return View();
         }
 
-        public ActionResult Graph(string sex, int? age)
+        public ActionResult Graph()
         {
             Data();
             //var model = new RecordViewModel

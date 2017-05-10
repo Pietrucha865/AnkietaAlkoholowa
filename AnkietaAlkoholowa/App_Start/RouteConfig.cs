@@ -19,7 +19,6 @@ namespace AnkietaAlkoholowa
 
 
 
-
             routes.MapRoute(
                 "Graph",
                 "Home/Graph/",
