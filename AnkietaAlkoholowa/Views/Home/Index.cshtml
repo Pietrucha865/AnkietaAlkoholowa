@@ -33,7 +33,7 @@
             <div class="carousel-inner" role="listbox">
 
                 <div class="item active">
-                    <h1> Wybierz płeć </h1>
+                    <h1 type="Sex"> Wybierz płeć </h1>
 
                     <div class="col-xs-12 col-sm-4">
                         <img src="~/Images/boy.png" onclick="myFunction(0, 0)" />
@@ -48,7 +48,7 @@
 
 
                 <div class="item">
-                    <h1>Wybierz przedział wiekowy</h1>
+                    <h1 type="Age">Wybierz przedział wiekowy</h1>
                     <div class="col-xs-12 col-sm-4">
                         <img src="~/Images/18.png" onclick="myFunction(1, 0)" />
                     </div>
@@ -63,7 +63,7 @@
                 <div class="item">
 
 
-                    <h1>Wybierz szkołę do jakiej chodzisz</h1>
+                    <h1 type="Education">Wybierz szkołę do jakiej chodzisz</h1>
 
                     <div class="col-xs-12 col-sm-4">
                         <button type="button" class="btn btn-primary" onclick="myFunction2(2, 0)">Gimnazjum</button>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <h1>Wybierz miejsce zamieszkania</h1>
+                    <h1 type="Live">Wybierz miejsce zamieszkania</h1>
 
 
                     <div class="col-xs-12 col-sm-4">
@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <h1>Wybierz preferowany alkohol</h1>
+                    <h1 type="Kind">Wybierz preferowany alkohol</h1>
 
 
                     <div class="col-xs-12 col-sm-4"><img src="~/Images/beer.png" onclick="myFunction(4, 0)" /></div>
@@ -98,27 +98,27 @@
 
                 </div>
                 <div class="item">
-                    <h1> Jak często ? </h1>
+                    <h1 type="Times"> Jak często ? </h1>
                     <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-primary" onclick="myFunction2(5, 0)">Codziennie</button></div>
                     <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-success" onclick="myFunction2(5, 1)">Sporadycznie</button></div>
                     <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-danger" onclick="myFunction2(5, 2)"> Nigdy</button></div>
                 </div>
                 <div class="item">
-                    <h1> Gdzie? </h1>
+                    <h1 type="Place"> Gdzie? </h1>
                     <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-primary" onclick="myFunction2(6, 0)">W domu</button>    </div>
                     <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-success" onclick="myFunction2(6, 1)">W plenerze</button></div>
                     <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-danger" onclick="myFunction2(6, 2)">Na imprezie</button></div>
                 </div>
 
                 <div class="item">
-                    <h1> Bywasz agresywny ? </h1>
+                    <h1 type="Aggresive"> Bywasz agresywny ? </h1>
                     <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(7,0)"><span class="glyphicon glyphicon-thumbs-up"></span></a>  </div>
                     <div class="col-xs-12 col-sm-4"></div>
                     <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(7,1)"><span class="glyphicon glyphicon-thumbs-down"></span></a></div>
 
                 </div>
                 <div class="item">
-                    <h1> Kac dnia następnego ? </h1>
+                    <h1 type="Hangover"> Kac dnia następnego ? </h1>
                     <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(8,0)"><span class="glyphicon glyphicon-thumbs-up"></span></a>  </div>
                     <div class="col-xs-12 col-sm-4"></div>
                     <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(8,1)"><span class="glyphicon glyphicon-thumbs-down"></span></a></div>
@@ -156,54 +156,108 @@
         var arrayInput = [];
         var booleanInput = [];
         var arr2;
+        var block;
 
         function reset() {
             $('.carousel-control').css("display","none");
             stopFade = true;
             var ja = document.getElementById("myCarousel").getElementsByTagName("a");
             ja[4].style.display = "none";
-            value += 100/9;
+            value += 100/9
             $('.progress-bar-striped').css('width', value + '%');
             if (Math.round(value) == 100) {
-                endAnkiety();
+                window.location.href = '/Home/Graph';
             }
         }
 
         function myFunction(numberOfClass, numberOfImage) {
             stopFade = false;
-
             var ja2 = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("img");
-            for (var i = 0 ; i < ja2.length ; i++) {
-                if (ja2[i].style.opacity == "1") {
-                    ja2[i].style.opacity = "0.25";
+            var array = ja2[numberOfImage].src.replace(/^.*[\\\/]/, '').replace(".png","");
+           
+            $.ajax(
+            {
+                type: "POST",
+                url: '/Home/Save',
+                data: { param: array, type: $('h1').eq(numberOfClass).attr('type') },
+                success: function(text) {
+                    for (var i = 0; i < ja2.length; i++) {
+                        if (ja2[i].style.opacity == "1") {
+                            ja2[i].style.opacity = "0.25";
+                        }
+                    }
+                    ja2[numberOfImage].style.opacity = "1";
+                    fejdIn();
+                },
+                error: function() {
+                     alert("nie udalo sie");
                 }
-            }
-            var array = ja2[numberOfImage].src.replace(/^.*[\\\/]/, '');
-            arrayInput.push(array.replace(".png", ""));
-            ja2[numberOfImage].style.opacity = "1";
-            fejdIn();
+         
+        });
+
+            
+            
 
         } function myFunction2(numberOfClass, numberOfImage) {
-            stopFade = false;
-            var ja2 = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("button");
-           for (var i = 0; i < ja2.length; i++) {
-               if (ja2[i].style.color == "red") {
-                   ja2[i].style.color = "whitesmoke";
-               }
+            if (!block) {
+                block = true;
+                stopFade = false;
+                var ja2 = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("button");
+
+            $.ajax(
+          {
+              type: "POST",
+              url: '/Home/Save',
+              data: { param: $(ja2[numberOfImage]).text(), type: $('h1').eq(numberOfClass).attr('type') },
+              success: function (text) {
+                  for (var i = 0; i < ja2.length; i++) {
+                      if (ja2[i].style.color == "red") {
+                          ja2[i].style.color = "whitesmoke";
+                      }
+                  }
+                  ja2[numberOfImage].style.color = "red";
+                  setInterval(function () {
+                      block = false;
+                  }, 2000)
+                  $(ja2[numberOfImage]).effect("shake", { direction: "right", times: 4, distance: 10 }, 1000);
+                  fejdIn();
+                 
+              },
+              error: function () {
+                  alert("nie udalo sie");
+              }
+
+          });
+
+
            }
-            ja2[numberOfImage].style.color = "red";
-
-            $(ja2[numberOfImage]).effect("shake", { direction: "right", times: 4, distance: 10 }, 1000);
-            arrayInput.push($(ja2[numberOfImage]).text());
-
-            fejdIn();
         }
 
         function myFunction3(numberOfClass, numberOfImage) {
             stopFade = false;
+            var array;
+            var element = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("a");
+            if (numberOfImage == 0) array = 1;
+            else array = 0;
 
-            var element = document.getElementsByClassName("item")[numberOfClass]
-                .getElementsByTagName("a");
+            $.ajax(
+       {
+           type: "POST",
+           url: '/Home/Save',
+           data: { param: array, type: $('h1').eq(numberOfClass).attr('type') },
+           success: function (text) {
+               for (var i = 0; i < element.length; i++) {
+                   if ($(element[i]).attr('class') == 'btn btn-info btn-lg')
+                       $(element).removeClass();
+               }
+               $(element[numberOfImage]).addClass("btn btn-info btn-lg");
+               fejdIn();
+           },
+           error: function () {
+               alert("nie udalo sie");
+           }
+
+       });
             for (var i = 0; i < element.length; i++) {
                 if ($(element[i]).attr('class') == 'btn btn-info btn-lg')
                     $(element).removeClass();
@@ -224,32 +278,8 @@
             if (stopFade == false) $('.carousel-control ').fadeOut(2000, fejdIn);
 
         }
-
-        function endAnkiety() {
-            //$.ajax({
-            //    type: "GET",
-            //    url: '/Home/Sessione',
-            //    data: {age : "123",sex:"hehe"},
-            //    contentType: "application/json; charset=utf-8",
-            //    dataType: "json"
-
-         
-            $.post('/Home/Sessione',
-            {
-                sex: arrayInput[0].toString(), age: arrayInput[1].toString(),
-                education: arrayInput[2].toString(), lives: arrayInput[3].toString(),
-                kind: arrayInput[4].toString(),  times: arrayInput[5].toString(),
-                place: arrayInput[6].toString(), aggresive: arrayInput[7].toString(),
-                hangover: arrayInput[8].toString()
-            });
-
-            //window.close();
-            //window.open("Graph");
-
-            window.location.href = '/Home/Graph';
-
-
-        }
+        
+       
     </script>
 
 

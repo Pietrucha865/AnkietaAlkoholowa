@@ -7,18 +7,15 @@ namespace AnkietaAlkoholowa.Models
 {
     public class Record
     {
-        public int Age { get; set; }
+        public string Age { get; set; }
         public string Sex { get; set; }
-
-        public Record()
-        {
-            
-        }
-
-        public Record(int age, string sex)
-        {
-            this.Age = age;
-            this.Sex = sex;
-        }
+        public string Education { get; set; }
+        public string Live { get; set; }
+        public string Kind { get; set; }
+        public string Times { get; set; }
+        public string Place { get; set; }
+        public string Aggresive { get; set; }
+        public string Hangover { get; set; }
     }
+    
 }
