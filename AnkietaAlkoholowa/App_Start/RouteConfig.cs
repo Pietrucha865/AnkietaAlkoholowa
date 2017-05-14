@@ -18,6 +18,7 @@ namespace AnkietaAlkoholowa
             //routes.IgnoreRoute("Home/Sessione/");
 
             routes.MapRoute("save", "Home/Save", new {controller = "Home", action = "Save"});
+            routes.MapRoute("tochart", "Home/SaveDataToChar", new {controller = "Home", action = "DataToChar" });
             routes.MapRoute("Defauly", "", new { controller = "Home", action = "RedirectToIndex"});
             
             routes.MapRoute(

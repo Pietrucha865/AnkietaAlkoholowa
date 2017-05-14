@@ -7,14 +7,14 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/ico" href="~/Images/favicon.ico" />
-	    <title>Alkohl</title>
-        @Scripts.Render("~/bundles/jquery")
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/bootstrap")
+		<title>Alkohl</title>
+		@Scripts.Render("~/bundles/jquery")
+		@Scripts.Render("~/bundles/bootstrap")
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		@Styles.Render("~/Content/css")
+
+	   
+		@*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
 
 
 	</head>
@@ -36,101 +36,101 @@
 <div id="kontener">
 
 
-    <div class="col-lg-4">
-        <canvas id="myChart1" class="charts" width="250" height="450"></canvas>
+	<div class="col-lg-4">
+		<canvas id="myChart1" class="charts" width="250" height="450"></canvas>
 
-        <div class="dropdown">
-            <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
-                Tutorials
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
+		<div class="dropdown">
+			<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
+				Tutorials
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
 
-                <li class="dropdown-submenu">
-                    <a class="test" tabindex="0" href="#" ang="sex">Płeć<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="#" ang="female">Kobieta</a></li>
-                        <li><a tabindex="-1" href="#" ang="male">Mężczyzna</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown-submenu">
-                    <a class="test" tabindex="1" href="#" ang="kind">Rodzaj alkoholu<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="#" ang="beer">Piwo</a></li>
-                        <li><a tabindex="-1" href="#" ang="wine">Wino</a></li>
-                        <li><a tabindex="-1" href="#" ang="vodka">Wódka</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown-submenu">
-                    <a class="test" tabindex="2" href="#" ang="age">Wiek<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="#" ang="18">&lt; 18</a></li>
-                        <li><a tabindex="-1" href="#" ang="1825">18 - 25</a></li>
-                        <li><a tabindex="-1" href="#" ang="25">&gt; 25</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown-submenu">
-                    <a class="test" tabindex="3" href="#" ang="times">Częstość<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="#">Nigdy</a></li>
-                        <li><a tabindex="-1" href="#">Sporadycznie</a></li>
-                        <li><a tabindex="-1" href="#">Codziennie</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown-submenu">
-                    <a class="test" tabindex="4" href="#" ang="place">Miejsce<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="#">W plenerze</a></li>
-                        <li><a tabindex="-1" href="#">W domu</a></li>
-                        <li><a tabindex="-1" href="#">Na imprezie</a></li>
-                    </ul>
-                </li>
+				<li class="dropdown-submenu" types="Sex" >
+					<a class="test" tabindex="0" >Płeć<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a tabindex="-1" ang="female">Kobieta</a></li>
+						<li><a tabindex="-1" ang="male">Mężczyzna</a></li>
+					</ul>
+				</li>
+				<li class="dropdown-submenu" types="Kind">
+					<a class="test" tabindex="1">Rodzaj alkoholu<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a tabindex="-1"  ang="beer">Piwo</a></li>
+						<li><a tabindex="-1"  ang="wine">Wino</a></li>
+						<li><a tabindex="-1"  ang="vodka">Wódka</a></li>
+					</ul>
+				</li>
+				<li class="dropdown-submenu" types="Age">
+					<a class="test" tabindex="2" >Wiek<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a tabindex="-1" ang="18">&lt; 18</a></li>
+						<li><a tabindex="-1" ang="1825">18 - 25</a></li>
+						<li><a tabindex="-1" ang="25">&gt; 25</a></li>
+					</ul>
+				</li>
+				<li class="dropdown-submenu" types="Times">
+					<a class="test" tabindex="3" >Częstość<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a tabindex="-1">Nigdy</a></li>
+						<li><a tabindex="-1">Sporadycznie</a></li>
+						<li><a tabindex="-1">Codziennie</a></li>
+					</ul>
+				</li>
+				<li class="dropdown-submenu" types="Place">
+					<a class="test" tabindex="4" >Miejsce<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a tabindex="-1">W plenerze</a></li>
+						<li><a tabindex="-1">W domu</a></li>
+						<li><a tabindex="-1">Na imprezie</a></li>
+					</ul>
+				</li>
 
-            </ul>
-        </div>
-    </div>
+			</ul>
+		</div>
+	</div>
 
-    <div class="col-lg-4">
-        <canvas id="myChart2" class="charts" width="250" height="450"></canvas>
-        <div class="dropdown">
-            <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
-                Tutorials
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
+	<div class="col-lg-4">
+		<canvas id="myChart2" class="charts" width="250" height="450"></canvas>
+		<div class="dropdown">
+			<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
+				Tutorials
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
 
-                <li class="dropdown-submenu">
-                    <a class="test" tabindex="5" href="#">New dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
-                        <li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+				<li class="dropdown-submenu">
+					<a class="test" tabindex="5" href="#">New dropdown <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
+						<li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
 
 
-        <div class="col-lg-4">
-            <canvas id="myChart3" class="charts" width="250" height="450"></canvas>
-            <div class="dropdown">
-                <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
-                    Tutorials
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-submenu">
-                        <a class="test" tabindex="6" href="#">New dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
-                            <li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
+		<div class="col-lg-4">
+			<canvas id="myChart3" class="charts" width="250" height="450"></canvas>
+			<div class="dropdown">
+				<button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
+					Tutorials
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li class="dropdown-submenu">
+						<a class="test" tabindex="6" href="#">New dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
+							<li><a tabindex="-1" href="#" onclick="Query()">2nd level dropdown</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-    @*<div class="loader">
+	@*<div class="loader">
 
 			</div>*@
 </div>
@@ -141,6 +141,7 @@
 
 
 <script>
+    
     var ctx = document.getElementById("myChart1");
     var myChart = new Chart(ctx,
     {
@@ -165,42 +166,66 @@
         options: {
             title: {
                 display: true,
-                text: "Kac",
+                text: "Częstość spożycia",
                 padding: 20,
                 fontSize: 32
             },
             legend:
-                {
+            {
                 display:false
             },
             responsive: false
-	   }
-	});
+        }
+    });
 
 
     var itemAng = null;
-	var item = null;
-	$(document).ready(function(){
-		$('.dropdown-submenu a.test').on("click", function(e) {
-			if (item != null) {
-				var el = $('.dropdown-submenu a.test').toArray();
-				el[item].click();
-			}
+    var item = null;
+    $(document).ready(function(){
+        $('.dropdown-submenu a.test').on("click", function(e) {
+            if (item != null) {
+                var el = $('.dropdown-submenu a.test').toArray();
+                el[item].click();
+            }
+            $(this).next('ul').toggle();
+            item = $(this).attr('tabindex');
+            itemAng = $(this).attr('ang');
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    });
 
-			$(this).next('ul').toggle();
-			item = $(this).attr('tabindex');
-			itemAng = $(this).attr('ang');
-			e.stopPropagation();
-			e.preventDefault();
-		});
-	});
 
-	$(document).ready(function() {
-		$('.dropdown-submenu .dropdown-menu a').on("click",
-			function () {
-			    if ($(this).attr('ang') != null)
-			    alert(itemAng + $(this).attr('ang'));
-			    else alert(itemAng + $(this).text());
-			});
-	});
+    
+    $(document).ready(function() {
+        $('.dropdown-submenu .dropdown-menu a').on("click",
+            function () {
+                var word;
+                var type = $(this).parent().parent().parent().attr('types');
+                if ($(this).attr('ang') != null)
+                {
+                    word = $(this).attr('ang');
+                }
+                else
+                {
+                    word = $(this).text();
+                }
+
+                $.ajax(
+            {
+             type: "POST",
+             url: '/Home/DataToChart',
+             data: { typ : type, attr : word },
+             success: function (text) {
+                 //TODO jesli sie uda to wez co zwroci i dodaj do chart
+
+             },
+             error: function () {
+                 alert("nie udalo sie");
+             }
+            });
+         });
+    });
+
+
 </script>
