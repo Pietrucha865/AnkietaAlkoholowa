@@ -43,25 +43,48 @@ namespace AnkietaAlkoholowa.Controllers
 
         public ContentResult DataToChart(string typ, string attr)
         {
-            using (
-                   var connect = new SqlConnection(@"Server=tcp:alcobase.database.windows.net,1433;Initial Catalog=AlcoTestBase;Persist Security Info=False;User ID=kubmar;Password=Qweasdzxc_95;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
 
+            int[] liczba = new int[3];
+            using (
+            var connect = new SqlConnection(@"Server=tcp:alcobase.database.windows.net,1433;Initial Catalog=AlcoTestBase;Persist Security Info=False;User ID=kubmar;Password=Qweasdzxc_95;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 connect.Open();
-                string query2 = $@"SELECT count(*) FROM[dbo].[Records] where hangover = @Hangover and age = '1825';";
-
+                string query2 = $@"SELECT count(*) FROM[dbo].[Records] where times = @Times and {typ} = @typ;";
                 using (SqlCommand command = new SqlCommand(query2, connect))
                 {
-                    command.Parameters.AddWithValue("@Sex", _record.Sex);
-                    command.Parameters.AddWithValue("@Age", _record.Age);
-                    command.Parameters.AddWithValue("@Education", _record.Education);
-                    command.Parameters.AddWithValue("@Live", _record.Live);
-                    command.Parameters.AddWithValue("@Kind", _record.Kind);
-                    command.Parameters.AddWithValue("@Times", _record.Times);
-                    command.Parameters.AddWithValue("@Place", _record.Place);
-                    command.Parameters.AddWithValue("@Aggresive", _record.Aggresive);
-                    command.Parameters.AddWithValue("@Hangover", _record.Hangover);
-                    command.ExecuteScalar();
+                    command.Parameters.AddWithValue("@Times", Record.TimesEnum.Nigdy.ToString());
+                    command.Parameters.AddWithValue("@typ", attr);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            liczba[0] = Int32.Parse(reader.GetValue(0).ToString());
+                        }
+                    }
+                }
+                using (SqlCommand command = new SqlCommand(query2, connect))
+                {
+                    command.Parameters.AddWithValue("@Times", Record.TimesEnum.Sporadycznie.ToString());
+                    command.Parameters.AddWithValue("@typ", attr);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            liczba[1] = Int32.Parse(reader.GetValue(0).ToString());
+                        }
+                    }
+                }
+                using (SqlCommand command = new SqlCommand(query2, connect))
+                {
+                    command.Parameters.AddWithValue("@Times", Record.TimesEnum.Codziennie.ToString());
+                    command.Parameters.AddWithValue("@typ", attr);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            liczba[2] = Int32.Parse(reader.GetValue(0).ToString());
+                        }
+                    }
                 }
                 //using (SqlCommand command = new SqlCommand(query, connect))
                 //{
@@ -77,6 +100,7 @@ namespace AnkietaAlkoholowa.Controllers
                 //    }
                 //}
             }
+            return Content($"{liczba[0].ToString()}-{liczba[1].ToString()}-{liczba[2].ToString()}");
         }
 
         public ContentResult Save(string param, string type)

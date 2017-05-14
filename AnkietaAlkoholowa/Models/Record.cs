@@ -7,6 +7,11 @@ namespace AnkietaAlkoholowa.Models
 {
     public class Record
     {
+        public enum TimesEnum
+        {
+            Codziennie, Sporadycznie,Nigdy
+        }
+
         public string Age { get; set; }
         public string Sex { get; set; }
         public string Education { get; set; }
