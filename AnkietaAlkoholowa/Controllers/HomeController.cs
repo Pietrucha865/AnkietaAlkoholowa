@@ -46,7 +46,7 @@ namespace AnkietaAlkoholowa.Controllers
 
             int[] liczba = new int[3];
             using (
-            var connect = new SqlConnection(@"Server=tcp:alcobase.database.windows.net,1433;Initial Catalog=AlcoTestBase;Persist Security Info=False;User ID=kubmar;Password=Qweasdzxc_95;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            var connect = new SqlConnection(@"Server=tcp:alcobase.database.windows.net,1433;Initial Catalog=AlcoTestBase;Persist Security Info=False;User ID=kubmar;Password=Qweasdzxc95;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 connect.Open();
                 string query2 = $@"SELECT count(*) FROM[dbo].[Records] where times = @Times and {typ} = @typ;";
