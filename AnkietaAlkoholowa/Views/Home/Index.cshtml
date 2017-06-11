@@ -4,57 +4,44 @@
 @using AnkietaAlkoholowa.Controllers
 @*@inherits System.Web.Mvc.WebViewPage*@
 @model AnkietaAlkoholowa.Models.Record
-  
 
 
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/ico" href="~/Images/favicon.ico" />
-        <title>Alkohl</title>
-        @Scripts.Render("~/bundles/jquery")
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/bootstrap")
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    </head>
-
-
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/ico" href="~/Images/favicon.ico" />
+    <title>Alkohl</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
 <body>
 
-
     <div class="container">
-
 
         <div id="myCarousel" class="carousel slide">
 
-
-
             <div class="carousel-inner" role="listbox">
-
                 <div class="item active">
-                    <h1 type="Sex"> Wybierz płeć </h1>
-
+                    <h1 type="Sex"> Jesteś kobietą czy mężczyzną? </h1>
                     <div class="col-xs-12 col-sm-4">
                         <img src="~/Images/boy.png" onclick="myFunction(0, 0)" />
                     </div>
                     <div class="col-xs-12 col-sm-4">
-
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <img src="~/Images/girl.png" onclick="myFunction(0, 1)" />
                     </div>
                 </div>
 
-
                 <div class="item">
-                    <h1 type="Age">Wybierz przedział wiekowy</h1>
+                    <h1 type="Age">Wybierz przedział wiekowy w którym się znajdujesz</h1>
                     <div class="col-xs-12 col-sm-4">
                         <img src="~/Images/18.png" onclick="myFunction(1, 0)" />
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <img src="~/Images/1825.png" onclick="myFunction(1, 1)" />
-
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <img src="~/Images/25.png" onclick="myFunction(1, 2)" />
@@ -62,9 +49,7 @@
                 </div>
                 <div class="item">
 
-
                     <h1 type="Education">Wybierz szkołę do jakiej chodzisz</h1>
-
                     <div class="col-xs-12 col-sm-4">
                         <button type="button" class="btn btn-primary" onclick="myFunction2(2, 0)">Gimnazjum</button>
                     </div>
@@ -76,8 +61,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <h1 type="Live">Wybierz miejsce zamieszkania</h1>
-
+                    <h1 type="Live">Wybierz miejsce Twojego zamieszkania</h1>
 
                     <div class="col-xs-12 col-sm-4">
                         <img src="~/Images/cottage.png" class="img-circle" onclick="myFunction(3, 0)" />
@@ -89,56 +73,45 @@
                     </div>
                 </div>
                 <div class="item">
-                    <h1 type="Kind">Wybierz preferowany alkohol</h1>
-
+                    <h1 type="Kind">Wybierz preferowany przez Ciebie alkohol</h1>
 
                     <div class="col-xs-12 col-sm-4"><img src="~/Images/beer.png" onclick="myFunction(4, 0)" /></div>
                     <div class="col-xs-12 col-sm-4"><img src="~/Images/vodka.png" onclick="myFunction(4, 1)" /></div>
                     <div class="col-xs-12 col-sm-4"><img src="~/Images/wine.png" onclick="myFunction(4, 2)" /></div>
-
                 </div>
                 <div class="item">
-                    <h1 type="Times"> Jak często ? </h1>
+                    <h1 type="Times"> Jak często spożywasz alkohol? </h1>
                     <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-primary" onclick="myFunction2(5, 0)">Codziennie</button></div>
                     <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-success" onclick="myFunction2(5, 1)">Sporadycznie</button></div>
-                    <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-danger" onclick="myFunction2(5, 2)"> Nigdy</button></div>
+                    <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-danger" onclick="myFunction2(5, 2)">Nigdy</button></div>
                 </div>
                 <div class="item">
-                    <h1 type="Place"> Gdzie? </h1>
+                    <h1 type="Place"> Gdzie najczęściej zdarza sie Tobie go spożywać? </h1>
                     <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-primary" onclick="myFunction2(6, 0)">W domu</button>    </div>
                     <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-success" onclick="myFunction2(6, 1)">W plenerze</button></div>
                     <div class="col-xs-12 col-sm-4"><button type="button" class="btn btn-danger" onclick="myFunction2(6, 2)">Na imprezie</button></div>
                 </div>
-
                 <div class="item">
-                    <h1 type="Aggresive"> Bywasz agresywny ? </h1>
+                    <h1 type="Aggresive"> Czy zdarzyło się kiedyś, że nie byłaś/byłeś w stanie zapanować nad sobą po alkoholu? </h1>
                     <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(7,0)"><span class="glyphicon glyphicon-thumbs-up"></span></a>  </div>
                     <div class="col-xs-12 col-sm-4"></div>
                     <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(7,1)"><span class="glyphicon glyphicon-thumbs-down"></span></a></div>
-
                 </div>
                 <div class="item">
-                    <h1 type="Hangover"> Kac dnia następnego ? </h1>
+                    <h1 type="Hangover"> Czy zdarza się Tobie przesadzić z alkoholem tak, że źle się czujesz następnego dnia? </h1>
                     <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(8,0)"><span class="glyphicon glyphicon-thumbs-up"></span></a>  </div>
                     <div class="col-xs-12 col-sm-4"></div>
                     <div class="col-xs-12 col-sm-4"><a onclick="myFunction3(8,1)"><span class="glyphicon glyphicon-thumbs-down"></span></a></div>
                 </div>
 
 
-
-
             </div>
-
             <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" data-interval="false" onclick="reset()">
                 <span class="glyphicon glyphicon-menu-right" aria-hidden="false"></span>
             </a>
-
         </div>
 
-
-
     </div>
-
 
     <div id="pasek" class="progress">
         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
@@ -146,41 +119,38 @@
     </div>
 
 
-
-
 </body>
+<script>
+    var value = 0;
+    var stopFade = false;
+    var arrayInput = [];
+    var booleanInput = [];
+    var arr2;
+    var block;
 
-    <script>
-        var value = 0;
-        var stopFade = false;
-        var arrayInput = [];
-        var booleanInput = [];
-        var arr2;
-        var block;
-
-        function reset() {
-            $('.carousel-control').css("display","none");
-            stopFade = true;
-            var ja = document.getElementById("myCarousel").getElementsByTagName("a");
-            ja[4].style.display = "none";
-            value += 100/9
-            $('.progress-bar-striped').css('width', value + '%');
-            if (Math.round(value) == 100) {
-                window.location.href = '/Home/Graph';
-            }
+    function reset() {
+        $('.carousel-control').css("display", "none");
+        stopFade = true;
+        var ja = document.getElementById("myCarousel").getElementsByTagName("a");
+        ja[4].style.display = "none";
+        value += 100 / 9
+        $('.progress-bar-striped').css('width', value + '%');
+        if (Math.round(value) == 100) {
+            window.location.href = '/Home/Graph';
         }
+    }
 
-        function myFunction(numberOfClass, numberOfImage) {
-            stopFade = false;
-            var ja2 = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("img");
-            var array = ja2[numberOfImage].src.replace(/^.*[\\\/]/, '').replace(".png","");
-           
-            $.ajax(
+    function myFunction(numberOfClass, numberOfImage) {
+        stopFade = false;
+        var ja2 = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("img");
+        var array = ja2[numberOfImage].src.replace(/^.*[\\\/]/, '').replace(".png", "");
+
+        $.ajax(
             {
                 type: "POST",
                 url: '/Home/Save',
                 data: { param: array, type: $('h1').eq(numberOfClass).attr('type') },
-                success: function(text) {
+                success: function (text) {
                     for (var i = 0; i < ja2.length; i++) {
                         if (ja2[i].style.opacity == "1") {
                             ja2[i].style.opacity = "0.25";
@@ -189,99 +159,98 @@
                     ja2[numberOfImage].style.opacity = "1";
                     fejdIn();
                 },
-                error: function() {
-                     alert("nie udalo sie");
+                error: function () {
+                    alert("nie udalo sie");
                 }
-         
-        });
 
-            
-            
-
-        } function myFunction2(numberOfClass, numberOfImage) {
-            if (!block) {
-                block = true;
-                stopFade = false;
-                var ja2 = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("button");
-
-            $.ajax(
-          {
-              type: "POST",
-              url: '/Home/Save',
-              data: { param: $(ja2[numberOfImage]).text(), type: $('h1').eq(numberOfClass).attr('type') },
-              success: function (text) {
-                  for (var i = 0; i < ja2.length; i++) {
-                      if (ja2[i].style.color == "red") {
-                          ja2[i].style.color = "whitesmoke";
-                      }
-                  }
-                  ja2[numberOfImage].style.color = "red";
-                  setInterval(function () {
-                      block = false;
-                  }, 2000)
-                  $(ja2[numberOfImage]).effect("shake", { direction: "right", times: 4, distance: 10 }, 1000);
-                  fejdIn();
-                 
-              },
-              error: function () {
-                  alert("nie udalo sie");
-              }
-
-          });
+            });
 
 
-           }
-        }
 
-        function myFunction3(numberOfClass, numberOfImage) {
+
+    } function myFunction2(numberOfClass, numberOfImage) {
+        if (!block) {
+            block = true;
             stopFade = false;
-            var array;
-            var element = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("a");
-            if (numberOfImage == 0) array = 1;
-            else array = 0;
+            var ja2 = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("button");
 
             $.ajax(
-       {
-           type: "POST",
-           url: '/Home/Save',
-           data: { param: array, type: $('h1').eq(numberOfClass).attr('type') },
-           success: function (text) {
-               for (var i = 0; i < element.length; i++) {
-                   if ($(element[i]).attr('class') == 'btn btn-info btn-lg')
-                       $(element).removeClass();
-               }
-               $(element[numberOfImage]).addClass("btn btn-info btn-lg");
-               fejdIn();
-           },
-           error: function () {
-               alert("nie udalo sie");
-           }
-
-       });
-            for (var i = 0; i < element.length; i++) {
-                if ($(element[i]).attr('class') == 'btn btn-info btn-lg')
-                    $(element).removeClass();
-            }
-            $(element[numberOfImage]).addClass("btn btn-info btn-lg");
-
-            if (numberOfImage == 0) arrayInput.push(1);
-            else if (numberOfImage == 1) arrayInput.push(0);
-            fejdIn();
-        }
-
-        function fejdIn() {
-            if (stopFade == false) $('.carousel-control ').fadeIn(2000, fejdOut);
-        }
+                {
+                    type: "POST",
+                    url: '/Home/Save',
+                    data: { param: $(ja2[numberOfImage]).text(), type: $('h1').eq(numberOfClass).attr('type') },
+                    success: function (text) {
+                        for (var i = 0; i < ja2.length; i++) {
+                            if (ja2[i].style.color == "red") {
+                                ja2[i].style.color = "whitesmoke";
+                            }
+                        }
+                        ja2[numberOfImage].style.color = "red";
+                        setInterval(function () {
+                            block = false;
+                        }, 2000)
+                        $(ja2[numberOfImage]).effect("shake", { direction: "right", times: 4, distance: 10 }, 1000);
+                        fejdIn();
 
 
-        function fejdOut() {
-            if (stopFade == false) $('.carousel-control ').fadeOut(2000, fejdIn);
+                    },
+                    error: function () {
+                        alert("nie udalo sie");
+                    }
+
+                });
+
 
         }
-        
-       
-    </script>
+    }
+
+    function myFunction3(numberOfClass, numberOfImage) {
+        stopFade = false;
+        var array;
+        var element = document.getElementsByClassName("item")[numberOfClass].getElementsByTagName("a");
+        if (numberOfImage == 0) array = 1;
+        else array = 0;
+
+        $.ajax(
+            {
+                type: "POST",
+                url: '/Home/Save',
+                data: { param: array, type: $('h1').eq(numberOfClass).attr('type') },
+                success: function (text) {
+                    for (var i = 0; i < element.length; i++) {
+                        if ($(element[i]).attr('class') == 'btn btn-info btn-lg')
+                            $(element).removeClass();
+                    }
+                    $(element[numberOfImage]).addClass("btn btn-info btn-lg");
+                    fejdIn();
+                },
+                error: function () {
+                    alert("nie udalo sie");
+                }
+
+            });
+        for (var i = 0; i < element.length; i++) {
+            if ($(element[i]).attr('class') == 'btn btn-info btn-lg')
+                $(element).removeClass();
+        }
+        $(element[numberOfImage]).addClass("btn btn-info btn-lg");
+
+        if (numberOfImage == 0) arrayInput.push(1);
+        else if (numberOfImage == 1) arrayInput.push(0);
+        fejdIn();
+    }
+
+    function fejdIn() {
+        if (stopFade == false) $('.carousel-control ').fadeIn(2000, fejdOut);
+    }
 
 
+    function fejdOut() {
+        if (stopFade == false) $('.carousel-control ').fadeOut(2000, fejdIn);
+
+    }
+
+
+</script>
 
 

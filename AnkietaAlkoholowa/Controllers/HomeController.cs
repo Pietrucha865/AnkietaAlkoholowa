@@ -41,7 +41,7 @@ namespace AnkietaAlkoholowa.Controllers
             return Redirect("Home/Index");
         }
 
-        public ContentResult DataToChart(string typ, string attr)
+        public void DataToChart(string typ, string attr)
         {
             using (
                    var connect = new SqlConnection(@"Server=tcp:alcobase.database.windows.net,1433;Initial Catalog=AlcoTestBase;Persist Security Info=False;User ID=kubmar;Password=Qweasdzxc_95;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
