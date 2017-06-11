@@ -41,7 +41,7 @@ namespace AnkietaAlkoholowa.Controllers
             return Redirect("Home/Index");
         }
 
-        public ContentResult DataToChart(string typ, string attr)
+        public void DataToChart(string typ, string attr)
         {
 
             int[] liczba = new int[3];
@@ -100,7 +100,7 @@ namespace AnkietaAlkoholowa.Controllers
                 //    }
                 //}
             }
-            return Content($"{liczba[0].ToString()}-{liczba[1].ToString()}-{liczba[2].ToString()}");
+          
         }
 
         public ContentResult Save(string param, string type)

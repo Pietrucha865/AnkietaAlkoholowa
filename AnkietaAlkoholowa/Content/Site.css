@@ -32,8 +32,18 @@ button.btn
     color: whitesmoke;
 }
 
-
 #myChart {
+    height: 300px;
+    width: 300px;
+    
+}
+#myChart1 {
+    height: 300px;
+    width: 300px;
+}#myChart2 {
+    height: 300px;
+    width: 300px;
+}#myChart3 {
     height: 300px;
     width: 300px;
 }

@@ -155,14 +155,26 @@
     <Content Include="Images\18.png" />
     <Content Include="Images\1825.png" />
     <Content Include="Images\25.png" />
+    <Content Include="Images\Agressive.png" />
     <Content Include="Images\beer.png" />
     <Content Include="Images\boy.png" />
     <Content Include="Images\city.png" />
     <Content Include="Images\cottage.png" />
     <Content Include="Images\favicon.ico" />
+    <Content Include="Images\Gdzie.png" />
     <Content Include="Images\girl.png" />
+    <Content Include="Images\Hangover.png" />
+    <Content Include="Images\Jak_czesto.png" />
+    <Content Include="Images\Miejsce_zamieszkania.png" />
+    <Content Include="Images\placetimes.jpg" />
+    <Content Include="Images\Plec.png" />
+    <Content Include="Images\Preferowany_alkohol.png" />
+    <Content Include="Images\sexeducation.jpg" />
     <Content Include="Images\vodka.png" />
+    <Content Include="Images\Wiek.png" />
     <Content Include="Images\wine.png" />
+    <Content Include="Images\wizualizacja.jpg" />
+    <Content Include="Images\Wyksztalcenie.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\canvasjs.min.js" />
@@ -199,8 +211,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Home\Graph.cshtml">
+    <Content Include="..\..\..\Desktop\Graph.cshtml">
       <BrowseToURL>~/Home/Graph</BrowseToURL>
+      <Link>Views\Home\Graph.cshtml</Link>
     </Content>
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
